@@ -4,7 +4,7 @@
   "description": "Allows you to monitor and make changes to a page’s history state.",
   "main": "index.js",
   "dependencies": {
-    "dom-delegator": "^10.0.0",
+    "dom-delegator": "git://github.com/openappjs/dom-delegator",
     "events": "^1.0.2",
     "global": "^4.3.0",
     "inherits": "^2.0.1"

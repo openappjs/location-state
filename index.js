@@ -1,7 +1,7 @@
 var EventEmitter = require('events').EventEmitter
 var inherits = require('inherits')
 var Delegator = require('dom-delegator')
-var window = require('global/window')
+var window = require('./window')
 
 var history = window.history || {}
 var location = window.location || {}
