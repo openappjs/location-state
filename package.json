@@ -5,8 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "emitter-component": "^1.1.1",
-    "eventlistener": "0.0.1",
-    "raf-component": "^1.1.2"
+    "eventlistener": "0.0.1"
   },
   "devDependencies": {
     "tape": "^2.13.0"

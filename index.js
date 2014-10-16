@@ -1,4 +1,3 @@
-var raf = require('raf-component')
 var emitter = require('emitter-component')
 var listener = require('eventlistener')
 
@@ -36,19 +35,16 @@ var HistoryState = function(options) {
 emitter(HistoryState.prototype)
 
 HistoryState.prototype.start = function() {
-  raf(function() {
-    if (this.started) {
-      return
-    }
+  if (this.started) {
+    return
+  }
 
-    this.started = true
-    this.announce()
+  this.started = true
+  this.announce()
 
-    this.usePushState ?
-      listener.add(window, 'popstate', this.announce) :
-      listener.add(window, 'hashchange', this.announce)
-
-  }.bind(this))
+  this.usePushState ?
+    listener.add(window, 'popstate', this.announce) :
+    listener.add(window, 'hashchange', this.announce)
 }
 
 HistoryState.prototype.stop = function() {
