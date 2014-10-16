@@ -1,10 +1,9 @@
 var emitter = require('emitter-component')
-var listener = require('eventlistener')
 var Delegator = require('dom-delegator')
 var window = require('global/window')
 
-var history = window.history
-var location = window.location
+var history = window.history || {}
+var location = window.location || {}
 var pushState = history.pushState
 var hasPushState = !!pushState
 
