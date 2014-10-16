@@ -44,6 +44,8 @@ var shared = function(test, options) {
       }, 1000)
     }, 1000)
   }, 1000)
+
+  state.start()
 }
 
 run('it with pushState or hashchange', function(test) {

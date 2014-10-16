@@ -34,8 +34,6 @@ var HistoryState = function(options) {
   this.started = false
   this.start = this.start.bind(this)
   this.announce = this.emit.bind(this, 'change')
-
-  this.start()
 }
 
 inherits(HistoryState, EventEmitter)
