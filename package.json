@@ -4,8 +4,9 @@
   "description": "Allows you to monitor and make changes to a page’s history state.",
   "main": "index.js",
   "dependencies": {
+    "dom-delegator": "^10.0.0",
     "emitter-component": "^1.1.1",
-    "eventlistener": "0.0.1"
+    "global": "^4.3.0"
   },
   "devDependencies": {
     "tape": "^2.13.0"

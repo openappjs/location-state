@@ -1,5 +1,7 @@
 var emitter = require('emitter-component')
 var listener = require('eventlistener')
+var Delegator = require('dom-delegator')
+var window = require('global/window')
 
 var history = window.history
 var location = window.location
@@ -25,6 +27,9 @@ var HistoryState = function(options) {
     )
   }
 
+  this.delegator = Delegator()
+  this.delegator.target = window;
+
   this.started = false
   this.start = this.start.bind(this)
   this.announce = this.emit.bind(this, 'change')
@@ -42,15 +47,23 @@ HistoryState.prototype.start = function() {
   this.started = true
   this.announce()
 
-  this.usePushState ?
-    listener.add(window, 'popstate', this.announce) :
-    listener.add(window, 'hashchange', this.announce)
+  if (this.usePushState) {
+    this.delegator.listenTo('popstate')
+    this.delegator.addGlobalEventListener('popstate', this.announce)
+  } else {
+    this.delegator.listenTo('hashchange')
+    this.delegator.addGlobalEventListener('hashchange', this.announce)
+  }
 }
 
 HistoryState.prototype.stop = function() {
-  this.usePushState ?
-    listener.remove(window, 'popstate', this.announce) :
-    listener.remove(window, 'hashchange', this.announce)
+  if (this.usePushState) {
+    this.delegator.unlistenTo('popstate')
+    this.delegator.removeGlobalEventListener('popstate', this.announce)
+  } else {
+    this.delegator.unlistenTo('hashchange')
+    this.delegator.removeGlobalEventListener('hashchange', this.announce)
+  }
 }
 
 HistoryState.prototype.change = function(path) {
