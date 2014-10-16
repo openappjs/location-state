@@ -9,6 +9,7 @@ var posthost = function(href) {
 var hasTail = function(haystack, needle) {
   return haystack.lastIndexOf(needle) + needle.length === haystack.length
 }
+var window = require('../window')
 
 var shared = function(test, options) {
   var count = 0
@@ -21,7 +22,7 @@ var shared = function(test, options) {
 
   setTimeout(function() {
     state.on('change', function() {
-      var current = posthost(location.href)
+      var current = posthost(window.location.href)
       var good = hasTail(current, expected)
       test.ok(good, current)
       if (++count === 3) {
