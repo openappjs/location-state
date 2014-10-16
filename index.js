@@ -1,4 +1,5 @@
-var emitter = require('emitter-component')
+var EventEmitter = require('events').EventEmitter
+var inherits = require('inherits')
 var Delegator = require('dom-delegator')
 var window = require('global/window')
 
@@ -11,6 +12,7 @@ var HistoryState = function(options) {
   if (!(this instanceof HistoryState)) {
     return new HistoryState(options)
   }
+  EventEmitter.call(this)
 
   var wantsPushState = options && options.pushState
   var wantsHash = options && options.hash
@@ -36,7 +38,7 @@ var HistoryState = function(options) {
   this.start()
 }
 
-emitter(HistoryState.prototype)
+inherits(HistoryState, EventEmitter)
 
 HistoryState.prototype.start = function() {
   if (this.started) {

@@ -5,8 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "dom-delegator": "^10.0.0",
-    "emitter-component": "^1.1.1",
-    "global": "^4.3.0"
+    "events": "^1.0.2",
+    "global": "^4.3.0",
+    "inherits": "^2.0.1"
   },
   "devDependencies": {
     "tape": "^2.13.0"

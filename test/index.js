@@ -25,7 +25,7 @@ var shared = function(test, options) {
       var good = hasTail(current, expected)
       test.ok(good, current)
       if (++count === 3) {
-        state.off() 
+        state.removeAllListeners()
         state.stop()
         state.change('/')
         test.end()
