@@ -8,7 +8,7 @@
     "events": "^1.0.2",
     "global": "^4.3.0",
     "inherits": "^2.0.1",
-    "min-location": "git://github.com/openappjs/min-location"
+    "min-window": "git://github.com/openappjs/min-window"
   },
   "devDependencies": {
     "run-browser": "^1.3.1",

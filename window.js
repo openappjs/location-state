@@ -1,3 +1,1 @@
-var Window = require('min-location/window')
-
-module.exports = Window()
+module.exports = require('min-window')()

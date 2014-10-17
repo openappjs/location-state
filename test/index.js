@@ -41,7 +41,7 @@ var shared = function(test, options) {
 
       setTimeout(function() {
         expected = first
-        history.back()
+        window.history.back()
       }, 1000)
     }, 1000)
   }, 1000)
@@ -58,7 +58,7 @@ run('it can just use hashchange', function(test) {
 })
 
 run('it can just use pushState', function(test) {
-  var hasPushState = !!history.pushState
+  var hasPushState = !!window.history.pushState
   try { 
     shared(test, { pushState: true })
   }
